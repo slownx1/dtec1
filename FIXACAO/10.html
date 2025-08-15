@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="resultado">
+        <input type="number" id="nmr1">
+        <input type="number" id="nmr2">
+    </div>
+    <button onclick="att()"></button>
+
+    <script>
+        function att(){
+            const n1 = parseFloat(document.getElementById("nmr1").value);
+            const n2 = parseFloat(document.getElementById("nmr2").value);
+
+            const resultado = document.getElementById("resultado");
+            resultado.textContent = `RESULTADO = ${n1 + n2}`;
+        }
+    </script>
+</body>
+
+</html>

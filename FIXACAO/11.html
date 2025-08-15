@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+</head>
+<body>
+  <form onsubmit="return validar()">
+    <input type="text" id="nome" placeholder="Nome">
+    <span id="erroNome" style="color: red;"></span>
+    <br><br>
+
+    <input type="email" id="email" placeholder="Email">
+    <span id="erroEmail" style="color: red;"></span>
+    <br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    function validar() {
+      let valido = true;
+
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      const erroNome = document.getElementById('erroNome');
+      const erroEmail = document.getElementById('erroEmail');
+
+      erroNome.textContent = "";
+      erroEmail.textContent = "";
+
+      if (nome === "") {
+        erroNome.textContent = "Nome obrigatório.";
+        valido = false;
+      }
+
+      if (!email.includes("@")) {
+        erroEmail.textContent = "Email inválido (falta @).";
+        valido = false;
+      }
+
+      return valido;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="nomeInput" type="text" placeholder="Digite seu nome" />
+    <button onclick="att()">SAUDAR</button>
+    <p id="saida"></p>
+
+    <script>
+        function att() {
+            const nome = document.getElementById('nomeInput').value.trim();
+            const saida = document.getElementById('saida');
+            saida.textContent = `Olá, ${nome}!`;}
+    </script>
+</body>
+
+</html>

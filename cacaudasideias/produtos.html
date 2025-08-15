@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos - Cacau das Ideias</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+
+</style>
+
+<body>
+  <header>
+    <h1>Produtos </h1>
+    <nav>
+      <a href="index.html" style="text-decoration: none; color: white;">Voltar ao Início</a>
+    </nav>
+  </header>
+
+  <main class="produtos-grid">
+
+    <button class="produto-card" onclick="botaoproduto()">
+      <img src="https://images.tcdn.com.br/img/img_prod/991424/trufa_cacau_show_pequena_573_1_f9ae13e6f5e2d8714ce2caf38372789e.jpg" alt=" Trufa">
+      <h3 class="nomeProduto">Trufa de Chocolate</h3>
+      <p class="descricao">Deliciosa trufa com recheio intenso</p>
+      <span class="valor">R$ 5,00</span>
+    </button>
+
+    <button class="produto-card produto-card2" onclick="botaoproduto2()">
+      <img src="https://i.ytimg.com/vi/QCD2khXyHFI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBEo_rulT970-2uzp8IT7m4RwfdNw" alt=" Bolo Cacau">
+      <h3 class="nomeProduto2">Bolo Cacau Cremoso</h3>
+      <p class="descricao2">Bolo molhadinho com cobertura de chocolate</p>
+      <span class="valor2">R$ 12,00</span>
+    </button>
+
+    <button class="produto-card produto-card3" onclick="botaoproduto3()">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_845591-MLU70025622273_062023-O.webp" alt=" Chocolate Quente">
+      <h3 class="nomeProduto3">Chocolate Quente</h3>
+      <p class="descricao3">Bebida quente para dias frios</p>
+      <span class="valor3">R$ 8,00</span>
+    </button>
+
+    <button class="produto-card produto-card4" onclick="botaoproduto4()">
+      <img src="https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwd5cd9254/large/1002628_1.png" alt="Caixa de Bombons Mini Show">
+      <h3 class="nomeProduto4">Caixa de Bombons Mini Show</h3>
+      <p class="descricao4">Saboreie os deliciosos bombons ao leite da Cacau Show</p>
+      <span class="valor4">R$ 40,00</span>
+    </button>
+
+    <button class="produto-card produto-card5" onclick="botaoproduto5()">
+      <img src="https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwde2eed8d/large/1002638_1.png" alt="laCreme de Chocolate">
+      <h3 class="nomeProduto5">Tablete laCreme de Chocolate</h3>
+      <p class="descricao5">cremoso e irresistível, feito com o famoso chocolate ao leite laCreme</p>
+      <span class="valor5">R$ 20,00</span>
+    </button>
+
+    <button class="produto-card produto-card6" onclick="botaoproduto6()">
+      <img src="https://www.cacaushow.com.br/on/demandware.static/-/Sites-masterCatalog_CacauShow/default/dwfb33c07a/large/1003226_2.png" alt="Cookies de Natal">
+      <h3 class="nomeProduto6">Cookies de Natal com Gotas ao Leite</h3>
+      <p class="descricao6">Com gotas de chocolate ao leite e uma textura crocante e macia</p>
+      <span class="valor6">R$ 25,00</span>
+    </button>    
+  </main>
+
+  <div style="width: 100%; text-align: center;">
+    <p class="resultado"></p>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Cacau das Ideias</p>
+  </footer>
+
+  <script>
+    const botaoCard = document.querySelector(".produto-card");
+    const resultado = document.querySelector(".resultado");
+    function botaoproduto() {
+
+      const nomeProduto = botaoCard.querySelector(".nomeProduto").textContent;
+      const descricao = botaoCard.querySelector(".descricao").textContent;
+      const valor = botaoCard.querySelector(".valor").textContent;
+
+      resultado.innerHTML += `<p> ${nomeProduto}, ${descricao}, ${valor}</p>`
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    const botaoCard2 = document.querySelector(".produto-card2");
+    const resultado2 = document.querySelector(".resultado2");
+    function botaoproduto2() {
+
+      const nomeProduto2 = botaoCard2.querySelector(".nomeProduto2").textContent;
+      const descricao2 = botaoCard2.querySelector(".descricao2").textContent;
+      const valor2 = botaoCard2.querySelector(".valor2").textContent;
+
+      resultado.innerHTML += `<p> ${nomeProduto2}, ${descricao2}, ${valor2}</p>`
+    }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    const botaoCard3 = document.querySelector(".produto-card3");
+    const resultado3 = document.querySelector(".resultado3");
+    function botaoproduto3() {
+
+      const nomeProduto3 = botaoCard3.querySelector(".nomeProduto3").textContent;
+      const descricao3 = botaoCard3.querySelector(".descricao3").textContent;
+      const valor3 = botaoCard3.querySelector(".valor3").textContent;
+
+      resultado.innerHTML += `<p> ${nomeProduto3}, ${descricao3}, ${valor3}</p>`
+    }
+    const botaoCard4 = document.querySelector(".produto-card4");
+    const resultado4 = document.querySelector(".resultado4");
+    function botaoproduto4() {
+
+      const nomeProduto4 = botaoCard4.querySelector(".nomeProduto4").textContent;
+      const descricao4 = botaoCard4.querySelector(".descricao4").textContent;
+      const valor4 = botaoCard4.querySelector(".valor4").textContent;
+
+      resultado.innerHTML += `<p> ${nomeProduto4}, ${descricao4}, ${valor4}</p>`
+    }
+
+    const botaoCard5 = document.querySelector(".produto-card5");
+    const resultado5 = document.querySelector(".resultado5");
+    function botaoproduto5() {
+
+      const nomeProduto5 = botaoCard5.querySelector(".nomeProduto5").textContent;
+      const descricao5 = botaoCard5.querySelector(".descricao5").textContent;
+      const valor5 = botaoCard5.querySelector(".valor5").textContent;
+
+      resultado.innerHTML += `<p> ${nomeProduto5}, ${descricao5}, ${valor5}</p>`
+    }
+
+    const botaoCard6 = document.querySelector(".produto-card6");
+    const resultado6 = document.querySelector(".resultado6");
+    function botaoproduto6() {
+
+      const nomeProduto6 = botaoCard6.querySelector(".nomeProduto6").textContent;
+      const descricao6 = botaoCard6.querySelector(".descricao6").textContent;
+      const valor6 = botaoCard6.querySelector(".valor6").textContent;
+
+      resultado.innerHTML += `<p> ${nomeProduto6}, ${descricao6}, ${valor6}</p>`
+    }    
+  </script>
+</body>
+
+</html>

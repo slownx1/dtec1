@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+</head>
+<body>
+
+  <button onclick="decrementar()">-</button>
+  <span id="contador">0</span>
+  <button onclick="incrementar()">+</button>
+
+  <script>
+    const contador = document.getElementById('contador');
+
+    function incrementar() {
+      let valor = parseInt(contador.innerText);
+      valor++;
+      contador.innerText = valor;
+    }
+
+    function decrementar() {
+      let valor = parseInt(contador.innerText);
+      valor--;
+      contador.innerText = valor;
+    }
+  </script>
+
+</body>
+</html>
