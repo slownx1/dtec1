@@ -1,0 +1,19 @@
+@import url("reset.css");
+@import url("nav.css");
+@import url("grid.css");
+@import url("card-listing.css");
+@import url("button.css");
+@import url("footer.css");
+
+/* hero */
+.hero {
+    background: #fff;
+    padding: 32px 16px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 28px;
+    color: #111;
+    margin-bottom: 16px;
+}

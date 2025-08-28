@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    input {
+      border-radius: 5px;
+      height: 30px;
+    }
+
+    .button {
+      background-color: blue;
+      color: white;
+      border: 0px;
+      border-radius: 5px;
+      height: 30px;
+    }
+
+    .remover {
+      background-color: rgb(255, 0, 0);
+      color: white;
+      border: 0px;
+      border-radius: 5px;
+      height: 30px;
+      margin-left: 10px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #a9a9a9;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main-container {
+      display: flex;
+      gap: 50px;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container2 {
+      height: 200px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      align-items: center;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .header {
+      background-color: #2c5f5f;
+      color: white;
+      padding: 12px;
+      margin: -20px -20px 20px -20px;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .tarefa {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f1f1f1;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+    }
+
+    .concluida {
+      background-color: #c4f7c4 !important;
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="container">
+      <div class="header">
+        <h2>Adicionar tarefas</h2>
+      </div>
+      <input type="text" id="tarefa">
+      <button onclick="tarefa()" class="button">ADICIONAR</button>
+    </div>
+
+    <div class="container2">
+      <div class="header">
+        <h2>Lista de tarefas</h2>
+      </div>
+      <div>
+        <ul id="dive"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function tarefa() {
+      const valor = document.getElementById('tarefa').value;
+      if (valor.trim() === "") return;
+
+      const dive = document.getElementById("dive");
+      const li = document.createElement("li");
+      li.className = "tarefa";
+
+      const texto = document.createElement("span");
+      texto.textContent = valor;
+      texto.onclick = function () {
+        li.classList.toggle("concluida");
+      };
+
+      const btn = document.createElement("button");
+      btn.textContent = "Remover";
+      btn.className = "remover";
+      btn.onclick = function () {
+        li.remove();
+      };
+
+      li.appendChild(texto);
+      li.appendChild(btn);
+      dive.appendChild(li);
+      document.getElementById("tarefa").value = "";
+    }
+  </script>
+</body>
+
+</html>

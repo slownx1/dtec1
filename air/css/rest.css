@@ -1,0 +1,29 @@
+/* Links */
+a {
+    color: #ff385c;
+    text-decoration: none;
+}
+
+/* Listas “zeradas” */
+ul,
+ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Imagens responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* body */
+body {
+    font-family: Arial;
+    margin: 0px;
+    padding: 0px;
+    background: #f9f9f9;
+    color: #222;
+}
+ 

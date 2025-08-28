@@ -1,0 +1,16 @@
+/* lista responsiva */
+.lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin: 16px;
+    gap: 16px;
+}
+
+/* telas médias */
+@media (max-width: 768px) {
+    .lista {
+        margin: 12px;
+        gap: 12px;
+        
+    }
+}
