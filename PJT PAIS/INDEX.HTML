@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Países</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 60%;
+        }
+
+        button {
+            padding: 8px 15px;
+        }
+
+        #container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #dcdcdc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Consulta de Países</h1>
+    <p>Digite o nome de um país em inglês para buscar</p>
+
+    <input type="text" id="paisInput" placeholder="Ex: Brazil, Japan">
+    <button id="buscarBtn">Buscar</button>
+
+    <div id="container"></div>
+
+
+
+    <script>
+        //Referencias aos elementos do HTML
+        const paisInput = document.getElementById("paisInput")
+        const buscarBtn = document.getElementById("buscarBtn")
+        const container = document.getElementById("container")
+
+        buscarBtn.addEventListener('click', () => {
+            const nomePais = paisInput.value.trim();
+
+            if (nomePais === "") {
+                alert("Por favor, digite o nome de um país")
+                return;
+            }
+
+            const url = `https://restcountries.com/v3.1/translation/${nomePais}`
+
+            fetch(url)
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    const pais = data[0]
+
+                    const moeda = Object.values(pais.currencies)[0].name;
+
+                    container.innerHTML = `
+                        <h2>NOME: ${pais.translations.por.offical}</h2>
+                        <h2>CAPITAL: ${pais.capital}</h2>
+                        <h2>POPULAÇÃO: ${pais.population}</h2>
+                        <h2>MOEDA: ${moeda}</h2>
+                        <img src="${pais.flags.svg }" alt="Bandeira de ${pais.name.common}" width="200px">`;
+
+                })
+        })
+
+
+
+    </script>
+</body>
+
+</html>

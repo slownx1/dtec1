@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Países</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 60%;
+    }
+
+    button {
+      padding: 8px 15px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    #container {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #dcdcdc;
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Consulta de Países</h1>
+  <p>Digite o nome de um país para buscar</p>
+
+  <input type="text" id="paisInput" placeholder="Ex: Brazil, Japan">
+  <button id="buscarBtn">Buscar</button>
+
+  <div id="container"></div>
+
+  <script>
+    const paisInput = document.getElementById("paisInput");
+    const buscarBtn = document.getElementById("buscarBtn");
+    const container = document.getElementById("container");
+
+    buscarBtn.addEventListener('click', () => {
+      const nomePais = paisInput.value.trim();
+
+      if (nomePais === "") {
+        alert("Por favor, digite o nome de um país");
+        return;
+      }
+
+      const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(nomePais)}&format=jsonv2`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data.length === 0) {
+            container.innerHTML = `<p>País não encontrado.</p>`;
+            return;
+          }
+
+          const resultado = data[0];
+          const lati = resultado.lat;
+          const longt = resultado.lon;
+
+          const url2 = `https://api.open-meteo.com/v1/forecast?latitude=${lati}&longitude=${longt}&current=temperature_2m,is_day`;
+
+          fetch(url2)
+            .then(response => response.json())
+            .then(data => {
+              const clima = data.current;
+              const diaOuNoite = clima.is_day === 1 
+                ? "Está de <strong>dia</strong>" 
+                : "Está de <strong>noite</strong>";
+
+              container.innerHTML = `
+                <h2>${nomePais}</h2>
+                <p>${diaOuNoite}</p>
+                <p>Temperatura atual: <strong>${clima.temperature_2m}°C</strong></p>
+              `;
+            });
+        });
+    });
+  </script>
+</body>
+</html>
