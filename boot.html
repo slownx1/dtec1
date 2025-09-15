@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Doc Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa
+        }
+
+        .navbar-dark {
+            background-color: #212529
+        }
+
+        .badge-sale {
+            background-color: #dc3545
+        }
+
+        .badge-new {
+            background-color: #0d6efd
+        }
+
+        .badge-eco {
+            background-color: #198754
+        }
+
+        .product-card img {
+            height: 180px;
+            object-fit: cover
+        }
+
+        footer {
+            background-color: #212529;
+            color: #fff;
+            padding: 15px 0;
+            margin-top: 40px;
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Doc Store</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://picsum.photos/1200/300?random=1" class="d-block w-100" alt="">
+                <div class="carousel-caption">
+                    <h5>Frete Grátis</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-4">
+        <div class="p-3 bg-light rounded shadow-sm">
+            <h5 class="mb-0">Ofertas de hoje <span class="badge bg-success">-20%</span></h5>
+            <small class="text-muted">Frete grátis acima de R$ 59,90</small>
+        </div>
+    </div>
+
+    <div class="container mb-3">
+        <div class="d-flex gap-2 flex-wrap">
+            <span class="badge bg-primary">Todos</span>
+            <span class="badge bg-secondary">Áudio</span>
+            <span class="badge bg-secondary">Acessórios</span>
+            <span class="badge bg-secondary">Gadgets</span>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://picsum.photos/400/200?random=2" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h6 class="card-title">Fone Pro <span class="badge bg-warning text-dark">Novo</span></h6>
+                        <p class="mb-1">R$ 69,90</p>
+                        <a href="#" class="btn btn-sm btn-primary">Adicionar ao carrinho</a>
+                        <div class="mt-2 d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Favoritar</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://picsum.photos/400/200?random=3" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h6 class="card-title">Headset X <span class="badge badge-sale">-35%</span></h6>
+                        <p class="mb-1">R$ 559,90</p>
+                        <a href="#" class="btn btn-sm btn-success">Comprar agora</a>
+                        <div class="mt-2 d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Comparar</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://picsum.photos/400/200?random=4" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h6 class="card-title">Earbuds Z <span class="badge badge-new">Novo</span></h6>
+                        <p class="mb-1">R$ 79,90</p>
+                        <a href="#" class="btn btn-sm btn-primary">Adicionar</a>
+                        <div class="mt-2 d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Favoritar</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://picsum.photos/400/200?random=5" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h6 class="card-title">Speaker Mini</h6>
+                        <p class="mb-1">R$ 139,90</p>
+                        <a href="#" class="btn btn-sm btn-primary">Adicionar ao carrinho</a>
+                        <div class="mt-2 d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Favoritar</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://picsum.photos/400/200?random=6" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h6 class="card-title">Cabo Fast <span class="badge badge-eco">Eco</span></h6>
+                        <p class="mb-1">R$ 49,90</p>
+                        <a href="#" class="btn btn-sm btn-success">Adicionar</a>
+                        <div class="mt-2 d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Favoritar</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <img src="https://picsum.photos/400/200?random=7" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h6 class="card-title">Adaptador Y <span class="badge badge-new">Hot</span></h6>
+                        <p class="mb-1">R$ 19,90</p>
+                        <a href="#" class="btn btn-sm btn-primary">Adicionar</a>
+                        <div class="mt-2 d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Favoritar</a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary">Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <h5 class="mb-3">Comprar produtos</h5>
+        <table class="table table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Produto</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Desconto</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fone Pro</td>
+                    <td>Áudio</td>
+                    <td>R$ 69,90</td>
+                    <td><span class="badge bg-success">10%</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Adicionar</button>
+                        <button class="btn btn-sm btn-danger">Remover</button>
+                        <button class="btn btn-sm btn-outline-secondary">Detalhes</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Headset X</td>
+                    <td>Gadget</td>
+                    <td>R$ 559,90</td>
+                    <td><span class="badge bg-danger">35%</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Adicionar</button>
+                        <button class="btn btn-sm btn-danger">Remover</button>
+                        <button class="btn btn-sm btn-outline-secondary">Detalhes</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Earbuds Z</td>
+                    <td>Áudio</td>
+                    <td>R$ 79,90</td>
+                    <td><span class="badge bg-success">5%</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Adicionar</button>
+                        <button class="btn btn-sm btn-danger">Remover</button>
+                        <button class="btn btn-sm btn-outline-secondary">Detalhes</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>© 2025 Doc Store</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
