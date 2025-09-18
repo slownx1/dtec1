@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const e = require('express');
 
 const app = express();
 const PORT = 3000;
@@ -64,8 +63,11 @@ app.delete('/usuarios/:id', (req, res) => {
 });
 
 app.post('/usuarios', (req, res) => {
+
+    const ultimoid = usuarios.reduce((max, user) => Math.max(max, user.id), 0);
+
     const novo = {
-        id: usuarios.length + 1,
+        id: ultimoid + 1,
         nome: req.body.nome,
         idade: req.body.idade
     }

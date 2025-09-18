@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container{
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            border-bottom: 2px solid #e0e0e0;
+            color: #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>gerenciamento de usuarios</h1>
+        <p>clique para listar os usuarios</p>
+        <div class="header-buttons">
+            <button id="btnlistusers">Listar</button>
+        </div>
+
+        <div id="user-cards-container" class="cards-grid"></div>
+
+        <h2>Add Usuario</h2>
+
+        <form id="adduserform" class="add-user-form">
+            <label for="nome">Nome:</label>
+            <input type="text" id="addnome" name="nome" required>
+            <label for="idade">Idade:</label>
+            <input type="number" id="addidade" name="idade" required>
+            <button type="submit">Adicionar Usuario</button>
+    </div>
+
+    <div id="editmodal" class="modal">
+        <div class="modal-content">
+            <h2>Editar Usuario</h2>
+            <form id="edituserform" class="edit-user-form">
+                <input type="hidden" id="editid" name="id">
+                <label for="editnome">Nome:</label>
+                <input type="text" id="editnome" name="nome" required>
+                <label for="editidade">Idade:</label>
+                <input type="number" id="editidade" name="idade" required>
+                <button type="submit" class="save">Salvar Alterações</button>
+                <button type="button" class="canc" id="cancel">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
