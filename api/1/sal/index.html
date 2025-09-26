@@ -11,7 +11,7 @@
             background-color: #f0f2f5;
             margin: 0;
             padding: 20px;
-        }
+        }   
 
         .container {
             max-width: 900px;
@@ -75,7 +75,8 @@
             justify-content: space-between;
             display: flex;
         }
-        .user.info{
+
+        .user.info {
             font-size: 1.1em;
             margin-bottom: 15px;
         }
@@ -99,7 +100,7 @@
             transition: background-color 0.3s;
         }
 
-        .modal{
+        .modal {
             display: none;
             position: fixed;
             z-index: 1;
@@ -112,7 +113,7 @@
             align-items: center;
         }
 
-        .modal-content{
+        .modal-content {
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -120,7 +121,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .modal-content h2{
+        .modal-content h2 {
             margin-top: 0;
             color: #333;
             border-bottom: 2px solid #e0e0e0;
@@ -128,13 +129,13 @@
             margin-bottom: 25px;
         }
 
-        .modal-content label{
+        .modal-content label {
             display: block;
             margin-top: 15px;
             color: #555;
         }
 
-        .modal-content input{
+        .modal-content input {
             width: 95%;
             padding: 10px;
             margin-top: 5px;
@@ -142,13 +143,13 @@
             border-radius: 5px;
         }
 
-        .modal-buttons{
+        .modal-buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
         }
 
-        .modal-buttons .btn-save{
+        .modal-buttons .btn-save {
             background-color: #007bff;
             color: white;
             padding: 10px 20px;
@@ -160,7 +161,7 @@
             margin-right: 10px;
         }
 
-        .btn-cancel{
+        .btn-cancel {
             background-color: #6c757d;
             color: white;
             padding: 10px 20px;
@@ -170,7 +171,6 @@
             transition: background-color 0.3s;
             flex: 1;
         }
-
     </style>
 </head>
 
@@ -217,6 +217,104 @@
         </div>
     </div>
     <script>
+        const url = 'localhost:3000/usuarios';
+
+        const userCardsContainer = document.getElementById('user-cards-container');
+        const adduserform = document.getElementById('addUserForm');
+        const btnListUsers = document.getElementById('btnListUsers');
+        const editModal = document.getElementById('editModal');
+        const editUserForm = document.getElementById('editUserForm');
+        const btnCancelEdit = document.getElementById('btnCancelEdit');
+        const editidinput = document.getElementById('editId');
+        const editnameinput = document.getElementById('editName');
+        const editageinput = document.getElementById('editAge');
+
+        function fetchandrenderusers() {
+            fetch(url)
+                .then(response => response.json())
+                .then(users => renderUsers(users))
+                .catch(error => {
+                    userCardsContainer.innerHTML = `<p>Erro ao carregar usuarios</p>`
+                })
+        }
+
+        function addUser(userData) {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+            body: JSON.stringify(userData)
+            })
+            .then (response => response.json)
+            .then (() => {
+                addUser.reset();
+                fetchandrenderusers();
+            })
+            .catch(error => console.error(error))
+        }
+
+        function edituser (userId, userData){
+            fetch(`${url}/${userId}`,{
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json)
+            .then(() => {
+                editModal.style.display = 'none';
+                fetchandrenderusers()
+            })
+            .catch(error => console.error-(error))
+        }
+
+        function deleteuser(userId){
+            fetch(`${url}/${userId}`,{
+                method: 'DELETE'
+            })
+            .then(response => response.json)
+            .then(() => {
+                fetchandrenderusers()
+            })
+            .catch(error => console.error(error))
+        }
+
+        function renderUsers(users){
+            userCardsContainer.innerHTML = "";
+            if (users.length === 0) {
+                userCardsContainer.innerHTML = `<p>Nenhum usuario encontrado</p>`
+                return;
+            }
+            users.forEach(user => {
+                const usercard = document.createElement('div')
+                usercard.classname = 'user-card'
+                usercard.innerHTML = `
+                <div class="user-info">
+                    <p>ID: ${user.id}</p>
+                    <p>Nome: ${user.nome}</p>
+                    <p>Idade: ${user.idade}</p>
+                </div>
+
+                <div class="card-buttons">
+                    <button class="btn-edit">Editar</button>
+                    <button class="btn-delete">Excluir</button>
+                </div>
+                `;
+
+                const editbtn = usercard.querySelector('.btn-edit')
+                const deletebtn = usercard.querySelector('.btn-delete')
+
+                editbtn.addEventListener('click', () => {
+                    editidinput.value = user.id;
+                    editnameinput.value = user.nome;
+                    editnameinput.value = user.idade;
+                    editModal.style.display = 'flex'
+                })
+            });
+        }
+
     </script>
 </body>
 
